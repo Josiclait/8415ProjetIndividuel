@@ -1,0 +1,11 @@
+[Unit]
+Description=Gunicorn instance for a gatekeeper app
+After=network.target
+[Service]
+User=ubuntu
+Group=www-data
+WorkingDirectory=/home/ubuntu/8415ProjetIndividuel
+ExecStart=/home/ubuntu/8415ProjetIndividuel/virtualEnvironment/bin/gunicorn -b localhost:8000 gatekeeper:app
+Restart=always
+[Install]
+WantedBy=multi-user.target
